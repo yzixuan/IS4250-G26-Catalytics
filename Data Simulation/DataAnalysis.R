@@ -3,25 +3,40 @@
 # Author: Group 26 (Team Catalytics)
 
 # Import Data
-rabiesData <- read.csv("~/Copy/AY 1516 Semester 2/IS4250/Project/IS4250 G26 Catalytics/rabiesData.csv")
-municipalitiesData <- read.csv("~/Copy/AY 1516 Semester 2/IS4250/Project/IS4250 G26 Catalytics/municipalitiesData.csv")
+rabiesData <- read.csv("~/Copy/AY 1516 Semester 2/IS4250/Project/IS4250 G26 Catalytics/Data Simulation/rabiesData.csv")
+municipalitiesData <- read.csv("~/Copy/AY 1516 Semester 2/IS4250/Project/IS4250 G26 Catalytics/Data Simulation/municipalitiesData.csv")
 
 View(rabiesData)
 View(municipalitiesData)
 
 # Declare Variables
 unvaccinated = municipalitiesData$Unvaccinated.Animals...
-bites = municipalitiesData$Bites.per.1000.residents
+animal_bites = municipalitiesData$Bites.per.1000.residents
+dog_bites = municipalitiesData$Dog.bites.per.1000.residents
 name = municipalitiesData$Municipality
 
 # Univariate Data Analysis
-summary(bites)
+summary(animal_bites)
+summary(dog_bites)
 summary(unvaccinated)
 
-# Scatter Plot
-plot(unvaccinated, bites, xlab="Percentage of Unvaccinated Animals", ylab="No. of Bites per 1,000 Residents")
-abline(v=mean(unvaccinated, na.rm=TRUE), col="orange")
-abline(h=mean(bites, na.rm=TRUE), col="orange")
-text(unvaccinated, bites, labels=name, cex= 0.5, pos=1)
+# Histogram
+hist(animal_bites,
+     main="Histogram for Animal Bites", 
+     xlab="No. of Animal Bites per 1,000 Residents", 
+     xlim=c(0.5,2.5), 
+     las=1, 
+     breaks=5)
 
-hist(rabiesData$Season)
+hist(dog_bites,
+     main="Histogram for Dog Bites", 
+     xlab="No. of Dog Bites per 1,000 Residents", 
+     xlim=c(0.5,2.5), 
+     las=1, 
+     breaks=5)
+
+# Scatter Plot
+plot(unvaccinated, animal_bites, xlab="Percentage of Unvaccinated Animals", ylab="No. of Animal Bites per 1,000 Residents")
+abline(v=mean(unvaccinated, na.rm=TRUE), col="orange")
+abline(h=mean(animal_bites, na.rm=TRUE), col="orange")
+text(unvaccinated, animal_bites, labels=name, cex= 0.5, pos=1)
