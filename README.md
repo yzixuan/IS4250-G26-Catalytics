@@ -10,6 +10,3 @@ K. Bottoms, L. Trotz-Williams, S. Hutchison, J. MacLeod, J. Dixon, O. Berke and 
 * Chik Jun Qi (A0099141A)
 * Ong Yi Quan (A0100058X)
 * Yap Zi Xuan (A0100619R)
-
-###Track
-More research-heavy, though we conducted data simulation and analysis too
